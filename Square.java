@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class Square extends JPanel {
+public class Square extends JPanel implements ActionListener{
 	private JTextField jftLength = new JTextField();
 	private JTextField jftArea = new JTextField();
 	private JTextField jftPerimeter = new JTextField();
@@ -45,8 +45,25 @@ public class Square extends JPanel {
 		p4.add(jftPerimeter);
 		this.add(p4,BorderLayout.SOUTH);
 		
-	
+		calculate.addActionListener(this);
+		clear.addActionListener(this);
 	}
 	
-
+	@Override
+	  public void actionPerformed(ActionEvent e) {
+	  	// TODO Auto-generated method stub
+	  	  if(e.getSource() == calculate){
+	  		 double l = Double.parseDouble(jftLength.getText());
+	  		 double area = l*l;
+	  		 double perimeter = l*4;
+	  		 
+	  		jftArea.setText(String.format("%.2f", area));
+	  		jftPerimeter.setText(String.format("%.2f", perimeter));
+	  	  }
+	  	  else if(e.getSource() == clear){
+	  		jftLength.setText("");
+	  		jftArea.setText("");
+	  		jftPerimeter.setText("");
+	  	  }
+	  }
 }
