@@ -49,10 +49,27 @@ public class Circle extends JPanel implements ActionListener{
 		p4.add(jftPerimeter);
 		this.add(p4,BorderLayout.SOUTH);
 		
-	
+		calculate.addActionListener(this);
+		clear.addActionListener(this);
 	}
 	
-	
+	@Override
+	  public void actionPerformed(ActionEvent e) {
+	  	// TODO Auto-generated method stub
+	  	  if(e.getSource() == calculate){
+	  		 double r = Double.parseDouble(jftRadius.getText());
+	  		 double area = r*r*(Math.PI);
+	  		 double perimeter = r*2*(Math.PI);
+	  		 
+	  		jftArea.setText(String.format("%.2f", area));
+	  		jftPerimeter.setText(String.format("%.2f", perimeter));
+	  	  }
+	  	  else if(e.getSource() == clear){
+	  		jftRadius.setText("");
+	  		jftArea.setText("");
+	  		jftPerimeter.setText("");
+	  	  }
+	  }
 	
 	
 }
