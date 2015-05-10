@@ -9,6 +9,8 @@ import javax.swing.*;
 public class GeoCalculate extends JFrame implements ActionListener{
 	private Circle circle = new Circle();
 	private JFrame circleFrame = new JFrame();
+	private Square square = new Square();
+	private JFrame squareFrame = new JFrame();
 	JButton circleButton = new JButton("Circle");
 	JButton squareButton = new JButton("Square");
 	JButton rectangleButton = new JButton("Rectangle");
@@ -21,7 +23,7 @@ public class GeoCalculate extends JFrame implements ActionListener{
 	  circleButton.addActionListener(this);  
 	  p2 = new JPanel(new GridLayout(1,2));
 	  p2.add(squareButton);
-		  
+	  squareButton.addActionListener(this);	  
 	  p3 = new JPanel(new GridLayout(1,2));
 	  p3.add(rectangleButton);
 	  	
@@ -50,7 +52,14 @@ public class GeoCalculate extends JFrame implements ActionListener{
 	  		 circleFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	  		 circleFrame.setVisible(true);
 	  	  }
-	  	  
+	  	  else if(e.getSource() == squareButton){
+	  		squareFrame.add(square);
+	  		squareFrame.setLocationRelativeTo(null);
+	  		squareFrame.setTitle("U10316005_GeoCalculate");
+	  		squareFrame.setSize(360, 300);
+	  		squareFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+	  		squareFrame.setVisible(true);
+	  	  } 
 	  }
 	 
 	 
