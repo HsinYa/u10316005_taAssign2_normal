@@ -6,7 +6,9 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
-public class GeoCalculate extends JFrame {
+public class GeoCalculate extends JFrame implements ActionListener{
+	private Circle circle = new Circle();
+	private JFrame circleFrame = new JFrame();
 	JButton circleButton = new JButton("Circle");
 	JButton squareButton = new JButton("Square");
 	JButton rectangleButton = new JButton("Rectangle");
@@ -14,17 +16,17 @@ public class GeoCalculate extends JFrame {
 	
 	
 	GeoCalculate(){
-	  	p1 = new JPanel(new GridLayout(1,2));
-	  	p1.add(circleButton);
+	  p1 = new JPanel(new GridLayout(1,2));
+	  p1.add(circleButton);
+	  circleButton.addActionListener(this);  
+	  p2 = new JPanel(new GridLayout(1,2));
+	  p2.add(squareButton);
 		  
-	  	p2 = new JPanel(new GridLayout(1,2));
-		  p2.add(squareButton);
-		  
-	  	p3 = new JPanel(new GridLayout(1,2));
-		  p3.add(rectangleButton);
+	  p3 = new JPanel(new GridLayout(1,2));
+	  p3.add(rectangleButton);
 	  	
-		  p4 = new JPanel();
-		  p4.add(p1,BorderLayout.NORTH);
+	  p4 = new JPanel();
+	  p4.add(p1,BorderLayout.NORTH);
 	    p4.add(p2,BorderLayout.CENTER);
 	    p4.add(p3,BorderLayout.SOUTH);
 	    p5 = new JPanel();
@@ -37,6 +39,20 @@ public class GeoCalculate extends JFrame {
 		  add(p5,BorderLayout.CENTER);
 	}
 
+        @Override
+	  public void actionPerformed(ActionEvent e) {
+	  	// TODO Auto-generated method stub
+	  	  if(e.getSource() == circleButton){
+	  		 circleFrame.add(circle);
+	  		 circleFrame.setLocationRelativeTo(null);
+	  		 circleFrame.setTitle("U10316005_GeoCalculate");
+	  		 circleFrame.setSize(360, 300);
+	  		 circleFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+	  		 circleFrame.setVisible(true);
+	  	  }
+	  	  
+	  }
+	 
 	 
 	public static void main(String[] args){
 		GeoCalculate frame = new GeoCalculate();
